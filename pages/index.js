@@ -1,65 +1,58 @@
+import {useState, useEffect} from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import data from '../data/data.json'
+import Element from '../components/Element'
+import Element2 from '../components/Element2'
+import BoxElemento from '../components/BoxElemento'
+import Conversor from '../utils/conversor'
 
 export default function Home() {
+
+  var elementClass = ""
+
+  const [element, setElement] = useState(data[0])
+  const [color, setColor] = useState("")
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <div className="container">
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+    <BoxElemento color={color} element={element}/>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+    <div className="table">
+      {data.map(s => (
+        <>
+        
+        <Element setColor={setColor} setElement={setElement} element = {s} type={s.groupBlock} number={s.numeroAtomico} simbolo={s.simbolo} nome = {s.nome} className={elementClass.concat("element element-",s.numeroAtomico)}>{s.numeroAtomico}</Element>
+        </>
+      ))
+      }
+    </div>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+    <div className="table" style={{margin:"20px auto", marginLeft:"180px"}}>
+      {data.map(s => (
+        <>
+        
+        <Element2 setColor={setColor} setElement={setElement}  element = {s} type={s.groupBlock} n1={57} n2={71} number={s.numeroAtomico} simbolo={s.simbolo} nome = {s.nome} className={elementClass.concat("element element-",s.numeroAtomico,"x")}>{s.numeroAtomico}</Element2>
+        </>
+      ))
+      }
+    </div>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+    <div className="table"  style={{margin:"0 auto", marginLeft:"180px"}}> 
+      {data.map(s => (
+        <>
+        
+        <Element2 setColor={setColor} setElement={setElement} element = {s} type={s.groupBlock} n1={89} n2={103} number={s.numeroAtomico} simbolo={s.simbolo} nome = {s.nome} className={elementClass.concat("element element-",s.numeroAtomico,"x")}>{s.numeroAtomico}</Element2>
+        </>
+      ))
+      }
+    </div>
+{/**/}
+      <Conversor/>
 
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
     </div>
   )
 }

@@ -14,3 +14,107 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.container{
+  max-width: 1300px;
+  margin: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  justify-content: center;
+
+}
+
+
+.table{
+  display: grid;
+  grid-template-columns: repeat(17, auto) 1fr;
+  width: 90%;
+
+  max-width: 100%;
+  margin: 50px auto;
+}
+
+.element{
+  justify-content: center;
+  position: relative;
+  width: 54.63px;
+  height: 54.63px;
+  margin: 1px;
+  border-radius: 2px;
+  border: 0.5px solid #50514F;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.element-in{
+  height: 54.63px;
+}
+
+.element-in h4{
+  text-align: center;
+}
+
+.element-in small{
+  margin-left: 3px;
+}
+
+.element :hover{
+  background: chartreuse;
+}
+
+h4{
+  margin: 0;
+}
+h3{
+  margin: 0px;
+}
+.element-2{
+  grid-column-start: -2;
+}
+
+tbody{
+
+  flex-basis: 100%;
+}
+
+tr{
+  display: block;
+}
+
+td{
+  display: flex;
+  border: 1px solid rgba(0,0,0,.1);
+  padding-left: 10px;
+}
+
+.element-5, .element-13{
+  grid-column-start: 13;
+}
+
+.align{
+  display:flex; 
+  align-items:center; 
+  justify-content: center
+}
+
+.box{
+  box-shadow: 0 0 10px rgb(0 0 0 / 20%);;
+  padding: 10px;
+  margin: 100px 0px;
+}
+
+.form{
+  display: flex;
+  margin: 10px 0;
+}
+
+.MuiFormControl-root {
+  width: 80%;
+}
+
+@media only screen and (max-width: 800px){
+  .container{
+    
+    overflow: scroll;
+  }
+}

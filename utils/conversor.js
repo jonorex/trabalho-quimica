@@ -44,7 +44,7 @@ const conversor = (props) => {
     
             if(el[i+1] !== undefined &&  isNaN(el[i+1])){
                 if(el[i] === el[i].toUpperCase() && el[i+1] === el[i+1].toLowerCase()){
-                    //els.push(el[i]+el[i+1])
+                    els.push(el[i]+el[i+1])
                     i++
                 }
             } 
@@ -58,7 +58,7 @@ const conversor = (props) => {
             }
     
         }
-       // console.log(els)
+        console.log(els)
         for(var i= 0; i < els.length; i++){
     
                 if(isNaN(els[i]) &&  isNaN(els[i+1]) ){
@@ -81,7 +81,7 @@ const conversor = (props) => {
 
         setFormulaLida(fl)
             
-        console.log(els)
+        //console.log(els)
 
         
 

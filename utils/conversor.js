@@ -1,5 +1,7 @@
-import React, {useState} from 'react'
-import data from '../data/data.json'
+import React, {useState} from 'react' //biblioteca
+import data from '../data/data.json' //vetor de elementos
+import ConversionArea from './conversionArea';
+//Biblioteca Material UI (Layout de campos)//
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -8,9 +10,9 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
-import ConversionArea from './conversionArea';
 
 
+//biblioteca Material UI
 const useStyles = makeStyles((theme) => ({
     root: {
       '& .MuiTextField-root': {
@@ -28,13 +30,8 @@ const conversor = (props) => {
     var el = "2H2SO4"
 
     
-    function calcMassa(el){
-        var els = []
-        var str = ""
-        var i = 0;
-        var qtdGlobal = 1
-    
-    
+//identifica elementos digitados
+    function getFormula(el, qtdGlobal, i, str, els){
         if (!isNaN(el[0])){
             qtdGlobal = el[0]
             i++
@@ -59,6 +56,8 @@ const conversor = (props) => {
     
         }
         console.log(els)
+
+        //Preenche com 1 elementos que não tenham a quantidade especificada
         for(var i= 0; i < els.length; i++){
     
                 if(isNaN(els[i]) &&  isNaN(els[i+1]) ){
@@ -80,12 +79,10 @@ const conversor = (props) => {
         }
 
         setFormulaLida(fl)
-            
-        //console.log(els)
+    }
 
-        
-
-    
+//troca os simbolos do elemento por syals respectivas massas
+    function substituirElementosPorNumeros(els){
         for(var i = 0; i < els.length; i++){
             for(var j = 0; j < data.length; j++){
                 if(els[i] === data[j].simbolo){
@@ -93,25 +90,15 @@ const conversor = (props) => {
                 }
             }
         }
-        console.log(els)
-        for(var i = 0; i < els.length; i++){
-            if(isNaN(els[i])){
-                setMassaMolar("Erro")
-                return
-            }
-        }
-    
-    
-        var a = [2,2,2,2]
-        var result = []
-        var resultado = 0
-    
-        
-    
+    }
+
+    function multiplicar(els, result){
         for(var i = 1; i < els.length; i=i+2){
             result.push(els[i-1]*els[i])
         }
-    
+    }
+
+    function somar(result, resultado, qtdGlobal){
         for(var i = 0; i < result.length; i++){
             resultado = result[i] + resultado;
             //console.log(result[i],"+",resultado)
@@ -120,7 +107,46 @@ const conversor = (props) => {
         resultado = resultado*qtdGlobal
     
         setMassaMolar(resultado)
+    }
+
+////////////////////////////////////////////////////
+    function calcMassa(el){
+        var els = []
+        var str = ""
+        var i = 0;
+        var qtdGlobal = 1
     
+    
+        getFormula(el, qtdGlobal, i, str, els)
+
+        
+            
+        //console.log(els)
+
+        
+
+        substituirElementosPorNumeros(els)
+        
+        console.log(els)
+        /*
+        for(var i = 0; i < els.length; i++){
+            if(isNaN(els[i])){
+                setMassaMolar("Erro")
+                return
+            }
+        }
+    
+    */
+        var a = [2,2,2,2]
+        var result = []
+        var resultado = 0
+    
+        
+    
+        multiplicar(els,result)
+    
+        
+        somar(result, resultado, qtdGlobal)
         
         console.log(resultado)
 

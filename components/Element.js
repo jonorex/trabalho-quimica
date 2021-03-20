@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import colors from '../utils/colors' //objeto de cores
 
 const Element = (props) => {
 
@@ -8,15 +9,16 @@ const Element = (props) => {
 
     const [selectE, setSelectE] = useState(false)
 
-
+    //Elementos do 57 ao 71 não aparecem na tabela
     if(props.number > 56 && props.number <  72 ){
         display="none"
     }
-
+    //Elementos do 89 ao 103 não aparecem na tabela
     if(props.number > 88 && props.number <  104){
         display="none"
     }
 
+    //função para passar elemento para a BoxElemento
     function getElement(){
       if(!(props.element.numeroAtomico === "57-71" || props.element.numeroAtomico === "89-103")){
         props.setElement(props.element)
@@ -31,37 +33,37 @@ const Element = (props) => {
 
     switch (props.type) {
         case "nonmetal":
-          color = "#a1d344"
+          color = colors.naoMetais
           break;
         case "alkali metal":
-          color = "#f1b200"
+          color = colors.metaisAlcalinos
           break;
        
         case "alkaline earth metal":
-          color="#eada00"
+          color= colors.metaisAlcalinosTerrosos
           break;
         case "metalloid":
-          color="#4db6ac"
+          color= colors.semeMetais
           break;
         case "metal":
-          color=" #a2c7d3" 
+          color= colors.outrosMetais 
           break
         case "probably metal":
           color="#FF54A4"
           break  
         case "transition metal":
-          color="#eb8e8e"
+          color=colors.metaisDeTrancisao
           break
         case "halogen":
-          color="#70cbeb"  
+          color= colors.halogenios  
         case "noble gas" || "probably noble gas":
-          color="#3d9ee3"
+          color=colors.gasesNobres
           break  
         case "actinoid":
-          color="#dcadd6"
+          color=colors.acnideos
           break
         case "lanthanoid":
-          color="#90e3e9"
+          color=colors.lantanideos
           break
       }
 

@@ -3,7 +3,9 @@ import ElementBigger from './ElementBigger'
 
 const BoxElemento = (props) => {
 
+    //Elemento recebido por propriedade do componente element/element 2
     const element = props.element
+    const color = props.color
 
     
 
@@ -11,7 +13,7 @@ const BoxElemento = (props) => {
     return (
         <div style={{position:"absolute", left:"16%", width:"546px", height:"180px"}}>
         <div >
-            <div style={{backgroundColor: props.color, filter: "contrast(50%)", height:"48px", alignItems:"center", display:'flex'}}>
+            <div style={{backgroundColor: color, filter: "contrast(50%)", height:"48px", alignItems:"center", display:'flex'}}>
             <h3 style={{marginLeft:"10px", fontWeight:"500", textTransform:"uppercase", fontSize:"16px"}}>{element.nome}</h3>
         </div>
             <div style={{display:"flex"}}>

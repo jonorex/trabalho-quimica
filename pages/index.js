@@ -6,6 +6,7 @@ import Element from '../components/Element'
 import Element2 from '../components/Element2'
 import BoxElemento from '../components/BoxElemento'
 import Conversor from '../utils/conversor'
+import Grupos from '../components/Grupos'
 
 export default function Home() {
 
@@ -19,7 +20,7 @@ export default function Home() {
 
 
     <BoxElemento color={color} element={element}/>
-
+{/*TABELA PERÍODICA PRINCIPAL*/}
     <div className="table">
       {data.map(s => (
         <>
@@ -29,7 +30,7 @@ export default function Home() {
       ))
       }
     </div>
-
+{/*LANTANÍDIOS*/}
     <div className="table" style={{margin:"20px auto", marginLeft:"180px"}}>
       {data.map(s => (
         <>
@@ -39,7 +40,7 @@ export default function Home() {
       ))
       }
     </div>
-
+    {/*ACNÍDIOS*/}
     <div className="table"  style={{margin:"0 auto", marginLeft:"180px"}}> 
       {data.map(s => (
         <>
@@ -49,9 +50,12 @@ export default function Home() {
       ))
       }
     </div>
-{/**/}
+
+    <Grupos/>
+{/*ÁREA DE CONVERÇÃO*/}
       <Conversor/>
 
+      
 
     </div>
   )

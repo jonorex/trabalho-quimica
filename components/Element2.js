@@ -1,15 +1,18 @@
 import React from 'react'
+import colors from '../utils/colors'
+
+//Serve apenas para mostrar os acnídeos e os lantanídios em linhas separadas
 
 const Element = (props) => {
 
     var display = ""
     var color
-
+    
     if(props.number < props.n1 || props.number > props.n2 || props.number==="57-71" || props.number==="89-103"){
         display="none"
     }
 
-    
+    //Passar elemento para box elementos
     function getElement(){
         if(!(props.element.numeroAtomico === "57-71" || props.element.numeroAtomico === "89-103")){
           props.setElement(props.element)
@@ -17,7 +20,7 @@ const Element = (props) => {
         }
         
       }
-  
+    
       function select(){
         setSelectE(true)
       }
@@ -28,14 +31,11 @@ const Element = (props) => {
 
     switch (props.type) {
         case "actinoid":
-          color="#dcadd6"
+          color= colors.acnideos
           break
         case "lanthanoid":
-          color="#90e3e9"
+          color= colors.lantanideos
           break
-        case "transition metal":
-            color="#eb8e8e"
-            break
     }
 
     return (

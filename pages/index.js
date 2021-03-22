@@ -19,9 +19,10 @@ export default function Home() {
     <div className="container">
 
 
-    <BoxElemento color={color} element={element}/>
+   
 {/*TABELA PERÍODICA PRINCIPAL*/}
     <div className="table">
+      <BoxElemento color={color} element={element}/>
       {data.map(s => (
         <>
         

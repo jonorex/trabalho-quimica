@@ -11,7 +11,7 @@ const BoxElemento = (props) => {
 
   
     return (
-        <div style={{position:"absolute", left:"16%", width:"546px", height:"180px"}}>
+        <div style={{position:"absolute", left:"34.5%", transform: "translateX(-50%)", width:"546px", height:"180px"}}>
         <div >
             <div style={{backgroundColor: color, filter: "contrast(50%)", height:"48px", alignItems:"center", display:'flex'}}>
             <h3 style={{marginLeft:"10px", fontWeight:"500", textTransform:"uppercase", fontSize:"16px"}}>{element.nome}</h3>

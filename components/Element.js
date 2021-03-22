@@ -26,11 +26,11 @@ const Element = (props) => {
       }
       
     }
-
+//não usa
     function select(){
       setSelectE(true)
     }
-
+  //Seleciona as cores
     switch (props.type) {
         case "nonmetal":
           color = colors.naoMetais
@@ -67,6 +67,7 @@ const Element = (props) => {
           break
       }
 
+      //Parte Visual
     return (
         <>
        

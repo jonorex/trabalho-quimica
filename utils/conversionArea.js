@@ -2,20 +2,28 @@ import React from 'react'
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 
-const conversionArea = (props) => {
+const conversionArea = (props) => { //declaracao de componente funcional props o que ele recebeu 
 
-    const [result, setResult] = React.useState("");
-    const handleChange = (event) => {
-        setResult(props);
+    const [result, setResult] = React.useState(""); //resultado da conversão massica
+    //evento do lado direito
+    const handleChange = (event) => {//metodo que capta quando o campo é alterado
+        setResult(props); ///fixo
         
     };
 
+    //campoEsquerdo
     const [result1, setResult1] = React.useState("");
+
     const handleChange2 = (event) => {
-        
+        //regra de tres
+
+        //de mol para grama
         if(ca1 === "1"){
             setResult(event.target.value*props.massaMolar)
-        }else{
+        }
+        
+        //de grama para mol
+        else{
             setResult(event.target.value/props.massaMolar)
         }
 
@@ -25,7 +33,7 @@ const conversionArea = (props) => {
 
     var t1, t2
     var ca1, ca2
-
+//value argumento passado pelo conversor radioButton
     if(props.value === "gramaMol"){
         t1 = "Grama"
         t2 = "Mol"
@@ -43,6 +51,7 @@ const conversionArea = (props) => {
   
     return (
         <div className="form">
+            {/*Campo para digitar*/}
             <TextField
               onChange={handleChange2}
               placeholder={ca1}
@@ -53,6 +62,7 @@ const conversionArea = (props) => {
                 shrink: true,
               }}
             />
+             {/*Campo de resultado*/}
             <TextField
               id="standard-number"
               label={t2}

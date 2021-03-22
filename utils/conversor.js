@@ -28,13 +28,16 @@ const conversor = (props) => {
     const [massaMolar, setMassaMolar] = useState(0)
     const [formulaLida, setFormulaLida] = useState("")
     var el = "2H2SO4"
+    var qtdGlobal = 1
 
     
 //identifica elementos digitados
-    function getFormula(el, qtdGlobal, i, str, els){
+    function getFormula(el, i, str, els){
         if (!isNaN(el[0])){
+            
             qtdGlobal = el[0]
             i++
+            
         }
     
         for(; i < el.length; i++){
@@ -49,13 +52,10 @@ const conversor = (props) => {
                 els.push(el[i])
             }
     
-            if(isNaN(el[i+1]) || el[i+1] === undefined){
-                //console.log("el[i+1]",el[i+1])
-                //els.push("1")
-            }
+            
     
         }
-        console.log(els)
+        //console.log(els)
 
         //Preenche com 1 elementos que não tenham a quantidade especificada
         for(var i= 0; i < els.length; i++){
@@ -95,13 +95,15 @@ const conversor = (props) => {
     function multiplicar(els, result){
         for(var i = 1; i < els.length; i=i+2){
             result.push(els[i-1]*els[i])
+        
         }
     }
 
-    function somar(result, resultado, qtdGlobal){
+    function somar(result, resultado){
         for(var i = 0; i < result.length; i++){
             resultado = result[i] + resultado;
             //console.log(result[i],"+",resultado)
+            
         }
     
         resultado = resultado*qtdGlobal
@@ -114,16 +116,14 @@ const conversor = (props) => {
         var els = []
         var str = ""
         var i = 0;
-        var qtdGlobal = 1
+        
     
     
-        getFormula(el, qtdGlobal, i, str, els)
+        getFormula(el, i, str, els)
 
         
             
         //console.log(els)
-
-        
 
         substituirElementosPorNumeros(els)
         
@@ -146,7 +146,7 @@ const conversor = (props) => {
         multiplicar(els,result)
     
         
-        somar(result, resultado, qtdGlobal)
+        somar(result, resultado)
         
         console.log(resultado)
 

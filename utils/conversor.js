@@ -1,4 +1,4 @@
-import React, {useState} from 'react' //biblioteca
+import React, {useState, useRef} from 'react' //biblioteca
 import data from '../data/data.json' //vetor de elementos
 import ConversionArea from './conversionArea';
 //Biblioteca Material UI (Layout de campos)//
@@ -10,6 +10,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+
 
 
 //biblioteca Material UI
@@ -27,8 +28,25 @@ const conversor = (props) => {
 
     const [massaMolar, setMassaMolar] = useState(0)
     const [formulaLida, setFormulaLida] = useState("")
+    const [atmQtd, setAtmQtd] = useState("")
     var el = "2H2SO4"
     var qtdGlobal = 1
+    var qtdAtm = []
+    var cQtdAtm = 0
+    const inputEl = useRef(null);
+
+    const [result1, setResult1] = React.useState("");
+    const [result, setResult] = React.useState(""); //resultado da conversão massica
+    const [mols, setMols] =  React.useState("1")
+    const [avogrado, setAvogrado]  = React.useState("")
+
+
+    function limpaCampos(){
+        setResult1("")
+        setResult("")
+        setMols("1")
+        setAvogrado("")
+    }
 
     
 //identifica elementos digitados
@@ -79,6 +97,14 @@ const conversor = (props) => {
         }
 
         setFormulaLida(fl)
+
+        for(var j = 0; j < fl.length; j++){
+            if(!isNaN(fl[j])){
+                //console.log("cQtdM",fl[j])
+                cQtdAtm = Number(fl[j])+cQtdAtm
+                
+            }
+        }
     }
 
 //troca os simbolos do elemento por syals respectivas massas
@@ -107,7 +133,10 @@ const conversor = (props) => {
         }
     
         resultado = resultado*qtdGlobal
-    
+       
+        cQtdAtm = cQtdAtm*qtdGlobal
+        console.log("cQtdMV", cQtdAtm)
+        setAtmQtd(cQtdAtm)
         setMassaMolar(resultado)
     }
 
@@ -199,13 +228,20 @@ const conversor = (props) => {
             <FormControl component="fieldset">
                 <FormLabel component="legend">Converter</FormLabel>
                   <RadioGroup aria-label="gender" name="gender1" value={valueRadio} onChange={handleChangeRadio}>
-                    <FormControlLabel value="gramaMol" control={<Radio />} label="De Grama para Mol" />
-                    <FormControlLabel value="molGrama" control={<Radio />} label="De Mol para Grama" />
+                    <FormControlLabel onClick={() => limpaCampos()} ref={inputEl} value="gramaMol" control={<Radio />} label="De Grama para Mol" />
+                    <FormControlLabel onClick={() => limpaCampos()} ref={inputEl} value="molGrama" control={<Radio />} label="De Mol para Grama" />
                   </RadioGroup>
             </FormControl>
             </div>
 
-            <ConversionArea value={valueRadio} massaMolar={massaMolar}/>
+            <ConversionArea result1 ={result1} 
+                            setResult1={setResult1}
+                            result={result}
+                            setResult={setResult} 
+                            mols={mols}
+                            setMols={setMols}
+                            avogrado={avogrado}
+                            setAvogrado={setAvogrado}  inputEl={inputEl} cQtdAtm={atmQtd}value={valueRadio} massaMolar={massaMolar}/>
 
         </div>
     )

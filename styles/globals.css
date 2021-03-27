@@ -34,6 +34,8 @@ a {
   margin: 50px auto;
 }
 
+
+
 .element{
   justify-content: center;
   position: relative;
@@ -117,4 +119,162 @@ td{
     
     overflow: scroll;
   }
+}
+
+@media only screen and (max-width: 1150px){
+  .boxElemento{
+    left: 38%  !important;
+    transform: translateX(-50%) !important;
+  }
+@media only screen and (max-width: 1045px){
+  .boxElemento{
+    left: 40%  !important;
+    transform: translateX(-50%) !important;
+  }
+}
+@media only screen and (max-width: 1000px){
+  .boxElemento{
+    left: 42%  !important;
+    transform: translateX(-50%) !important;
+  }
+}
+@media only screen and (max-width: 948px){
+  .boxElemento{
+    left: 44%  !important;
+    transform: translateX(-50%) !important;
+  }
+}
+@media only screen and (max-width: 905px){
+  .boxElemento{
+    left: 46%  !important;
+    transform: translateX(-50%) !important;
+  }
+}
+@media only screen and (max-width: 862px){
+  .boxElemento{
+    left: 48%  !important;
+    transform: translateX(-50%) !important;
+  }
+}
+@media only screen and (max-width: 833px){
+  .boxElemento{
+    left: 50%  !important;
+    transform: translateX(-50%) !important;
+  }
+}
+@media only screen and (max-width: 833px){
+  .boxElemento{
+    left: 52%  !important;
+    transform: translateX(-50%) !important;
+  }
+}
+@media only screen and (max-width: 786px){
+  .boxElemento{
+    left: 54%  !important;
+    transform: translateX(-50%) !important;
+  }
+}
+@media only screen and (max-width: 760px){
+  .boxElemento{
+    left: 56%  !important;
+    transform: translateX(-50%) !important;
+  }
+}
+@media only screen and (max-width: 735px){
+  .boxElemento{
+    left: 58%  !important;
+    transform: translateX(-50%) !important;
+  }
+}
+@media only screen and (max-width: 710px){
+  .boxElemento{
+    left: 60%  !important;
+    transform: translateX(-50%) !important;
+  }
+}
+@media only screen and (max-width: 687px){
+  .boxElemento{
+    left: 62%  !important;
+    transform: translateX(-50%) !important;
+  }
+}
+@media only screen and (max-width: 666px){
+  .boxElemento{
+    left: 64%  !important;
+    transform: translateX(-50%) !important;
+  }
+}
+@media only screen and (max-width: 646px){
+  .boxElemento{
+    left: 66%  !important;
+    transform: translateX(-50%) !important;
+  }
+}
+@media only screen and (max-width: 628px){
+  .boxElemento{
+    left: 68%  !important;
+    transform: translateX(-50%) !important;
+  }
+}
+@media only screen and (max-width: 611px){
+  .boxElemento{
+    left: 70%  !important;
+    transform: translateX(-50%) !important;
+  }
+}
+@media only screen and (max-width: 595px){
+  .boxElemento{
+    left: 72%  !important;
+    transform: translateX(-50%) !important;
+  }
+}
+@media only screen and (max-width: 595px){
+  .boxElemento{
+    left: 74%  !important;
+    transform: translateX(-50%) !important;
+  }
+}
+@media only screen and (max-width: 566px){
+  .boxElemento{
+    left: 78%  !important;
+    transform: translateX(-50%) !important;
+  }
+}
+@media only screen and (max-width: 549px){
+  .boxElemento{
+    left: 82%  !important;
+    transform: translateX(-50%) !important;
+  }
+}
+@media only screen and (max-width: 519px){
+  .boxElemento{
+    left: 86%  !important;
+    transform: translateX(-50%) !important;
+  }
+}
+@media only screen and (max-width: 500px){
+  .boxElemento{
+    left: 90%  !important;
+    transform: translateX(-50%) !important;
+  }
+}
+@media only screen and (max-width: 479px){
+  .boxElemento{
+    left: 94%  !important;
+    transform: translateX(-50%) !important;
+  }
+}
+@media only screen and (max-width: 460px){
+  .boxElemento{
+    left: 98%  !important;
+    transform: translateX(-50%) !important;
+  }
+}
+@media only screen and (max-width: 411px){
+  .boxElemento{
+    left: 100%  !important;
+    transform: translateX(-50%) !important;
+  }
+}
+  
 }

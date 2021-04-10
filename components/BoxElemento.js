@@ -11,12 +11,13 @@ const BoxElemento = (props) => {
 
   
     return (
-        <div className="boxElemento" style={{position:"absolute", left:"34.5%", transform: "translateX(-50%)", width:"546px", height:"180px"}}>
-        <div >
+        <div className="boxElemento" style={{position:"absolute", top:"-21%", left:"34.5%", transform: "translateX(-50%)", width:"546px", height:"180px"}}>
+        <div>
             <div style={{backgroundColor: color, filter: "contrast(50%)", height:"48px", alignItems:"center", display:'flex'}}>
             <h3 style={{marginLeft:"10px", fontWeight:"500", textTransform:"uppercase", fontSize:"16px"}}>{element.nome}</h3>
         </div>
             <div style={{display:"flex"}}>
+            
                 <ElementBigger element = {element} color={props.color}/>
                 <table style={{display:"flex",flexBasis:"40%"}}>
                     <tbody>
@@ -31,6 +32,18 @@ const BoxElemento = (props) => {
                         </tr>
                         <tr>
                             <td>Configuração eletrônica</td>
+                        </tr>
+                        <tr>
+                            <td>Raio Atômico</td>
+                        </tr>
+                        <tr>
+                            <td>Energia de ionização</td>
+                        </tr>
+                        <tr>
+                            <td>Afinidade eletrônica</td>
+                        </tr>
+                        <tr>
+                            <td>Eletronegatividade</td>
                         </tr>
                     </tbody>
                 </table>
@@ -48,6 +61,18 @@ const BoxElemento = (props) => {
                         </tr>
                         <tr>
                             <td>{element.electronicConfiguration}</td>
+                        </tr>
+                        <tr>
+                            <td>{element.atomicRadius}</td>
+                        </tr>
+                        <tr>
+                            <td>{element.ionizationEnergy}</td>
+                        </tr>
+                        <tr>
+                            <td>{element.electronAffinity}</td>
+                        </tr>
+                        <tr>
+                            <td>{element.electronegativity}</td>
                         </tr>
                     </tbody>
                 </table>

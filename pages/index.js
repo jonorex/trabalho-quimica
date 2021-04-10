@@ -18,11 +18,11 @@ export default function Home() {
   return (
     <div className="container">
 
+<div style={{marginTop:"200px"}}>
 
-   
 {/*TABELA PERÍODICA PRINCIPAL*/}
     <div className="table">
-      <BoxElemento color={color} element={element}/>
+    <BoxElemento color={color} element={element}/>
       {data.map(s => (
         <>
         
@@ -51,6 +51,8 @@ export default function Home() {
       ))
       }
     </div>
+
+  </div>
 
     <Grupos/>
 {/*ÁREA DE CONVERÇÃO*/}

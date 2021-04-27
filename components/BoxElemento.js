@@ -18,7 +18,7 @@ const BoxElemento = (props) => {
         </div>
             <div style={{display:"flex"}}>
             
-                <ElementBigger element = {element} color={props.color}/>
+                <ElementBigger element = {element} nome={element.nome} color={props.color}/>
                 <table style={{display:"flex",flexBasis:"40%"}}>
                     <tbody>
                         <tr>

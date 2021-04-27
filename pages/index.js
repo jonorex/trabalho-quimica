@@ -7,6 +7,7 @@ import Element2 from '../components/Element2'
 import BoxElemento from '../components/BoxElemento'
 import Conversor from '../utils/conversor'
 import Grupos from '../components/Grupos'
+import Pilhas from '../components/Pilhas'
 
 export default function Home() {
 
@@ -58,7 +59,7 @@ export default function Home() {
 {/*ÁREA DE CONVERÇÃO*/}
       <Conversor/>
 
-      
+      <Pilhas/>
 
     </div>
   )

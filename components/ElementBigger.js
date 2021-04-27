@@ -15,10 +15,10 @@ const ElementBigger = (props) => {
             <div style={{ justifyContent:"center", flexBasis:"54.6%"}}>
                 <small style={{fontSize:"14px"}}>{element.numeroAtomico}</small>
                 <div className="align">
-                    <h4 style={{fontSize:"38px", textAlign:"center"}}>{element.simbolo}</h4>
+                    <h4 style={{fontSize:"38px", textAlign:"center", display:"table"}}>{element.simbolo}</h4>
                 </div>
                 <div className="align">
-                    <small style={{fontSize:"14px"}}>{element.nome}</small>
+                    <small style={{fontSize:"14px"}}>{props.nome}</small>
                 </div>
             </div>
            

@@ -13,6 +13,8 @@ import dataPotenciais from '../data/dataPotenciais';
 import Bottom from '../utils/Bottom';
 import Upper from '../utils/Upper';
 
+import colors from '../utils/colors';
+
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
@@ -40,39 +42,88 @@ const Pilhas = () => {
   const [volts, setVolts] = React.useState('');
   const [elA, setElA] = React.useState('')
   const [elB, setElB] = React.useState('')
+  const [eletrodo1, setEletrodo1] = React.useState('')
+  const [eletrodo2, setEletrodo2] = React.useState('')
+  const [data1, setData1] = React.useState('')
+  const [data2, setData2] = React.useState('')
+
+  
 
   const handleChange = (event) => {
-    element.simbolo = event.target.value[1];
-    element.numeroAtomico = event.target.value[0]
+    setData1(event.target.value[0])
+    if(event.target.value[1] === "cat"){
+      element.simbolo = event.target.value[0].Cat;
+      element.numeroAtomico = event.target.value[0].PotencialCat
+    }else{
+      element.simbolo = event.target.value[0].Anado;
+      element.numeroAtomico = event.target.value[0].PotencialAn
+    }
+    
     setEl1(element);
 
+    
     if(el2 !== ''){
-      calcVoltagem(event.target.value[0], el2.numeroAtomico)
+      calcVoltagem(element.numeroAtomico, el2.numeroAtomico,event.target.value[0], data2)
     }
   };
 
   const handleChange2 = (event) => {
-    element.simbolo = event.target.value[1];
-    element.numeroAtomico = event.target.value[0]
+    setData2(event.target.value[0])
+    if(event.target.value[1] === "cat"){
+      element.simbolo = event.target.value[0].Cat;
+      element.numeroAtomico = event.target.value[0].PotencialCat
+    }else{
+      element.simbolo = event.target.value.value[0].Anado;
+      element.numeroAtomico = event.target.value[0].PotencialAn
+    }
     setEl2(element);
     if(el1 !== ''){
-      calcVoltagem(el1.numeroAtomico, event.target.value[0])
+      calcVoltagem(el1.numeroAtomico, element.numeroAtomico,data1,event.target.value[0])
 
     }
   };
 
 
 
-  function calcVoltagem(a,b){
+  function calcVoltagem(a,b,elcA,elcB){
     console.log("a: ",a, " b: ",b)
+    
     if(a > b){
       setElB("Ânado") 
       setElA("Cátado") 
       setVolts(parseFloat(a-b).toFixed(2));
+
+      var element1 = {
+        numeroAtomico:elcA.PotencialCat,
+        //nome: "nome",
+        simbolo:elcA.Cat
+    }
+      setEletrodo1(element1)
+
+      var element2 = {
+        numeroAtomico: elcB.PotencialAn,
+        simbolo: elcB.Anado
+      }
+      setEletrodo2(element2)
+
     }else{
       setElB("Cátado") 
       setElA("Ânado") 
       setVolts(parseFloat(b-a).toFixed(2));
+      var element1 = {
+        numeroAtomico:elcA.PotencialAn,
+        //nome: "nome",
+        simbolo:elcA.Anado
+    }
+      setEletrodo1(element1)
+
+      var element2 = {
+        numeroAtomico: elcB.PotencialCat,
+        simbolo: elcB.Cat
+      }
+      setEletrodo2(element2)
+
+      
     }
     
   }
@@ -93,7 +144,16 @@ const Pilhas = () => {
           {
             dataPotenciais.map(s => (
               
-            <MenuItem value={[s.Potencial, s.Formula]}>{s.Formula}</MenuItem>
+            <MenuItem value={[s, "cat"]}>{s.Cat}</MenuItem>
+              
+              
+            ))
+          }
+
+          {
+            dataPotenciais.map(s => (
+              
+            <MenuItem value={[s, "an"]}>{s.Anado}</MenuItem>
               
               
             ))
@@ -113,7 +173,16 @@ const Pilhas = () => {
           {
             dataPotenciais.map(s => (
               
-            <MenuItem value={[s.Potencial, s.Formula]}>{s.Formula}</MenuItem>
+            <MenuItem value={[s, "cat"]}>{s.Cat}</MenuItem>
+              
+              
+            ))
+          }
+
+          {
+            dataPotenciais.map(s => (
+              
+            <MenuItem value={[s, "an"]}>{s.Anado}</MenuItem>
               
               
             ))
@@ -127,6 +196,16 @@ const Pilhas = () => {
           <ElementBigger color="green" element ={el1} nome={elA}/>
           <Display valor={volts}/>
           <ElementBigger color="blue"  element={el2} nome={elB}/>
+
+          
+      </div>
+
+      <div style={{display:"flex", justifyContent:"center", alignItems:"center", margin:"10px 10px"}}>
+          
+
+          <ElementBigger color={colors.lantanideos} element={eletrodo1} nome={elA}/>
+          <h4 style={{marginBottom:"40px"}}>Eletrodos Resultantes</h4>
+          <ElementBigger color={colors.acnideos} element={eletrodo2} nome={elB}/>
       </div>
         
 

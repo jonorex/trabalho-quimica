@@ -73,7 +73,7 @@ const Pilhas = () => {
       element.simbolo = event.target.value[0].Cat;
       element.numeroAtomico = event.target.value[0].PotencialCat
     }else{
-      element.simbolo = event.target.value.value[0].Anado;
+      element.simbolo = event.target.value[0].Anado;
       element.numeroAtomico = event.target.value[0].PotencialAn
     }
     setEl2(element);
@@ -87,11 +87,12 @@ const Pilhas = () => {
 
   function calcVoltagem(a,b,elcA,elcB){
     console.log("a: ",a, " b: ",b)
-    
+    var volts
     if(a > b){
       setElB("Ânado") 
       setElA("Cátado") 
-      setVolts(parseFloat(a-b).toFixed(2));
+      volts = parseFloat(a-b).toFixed(2)
+      setVolts(volts);
 
       var element1 = {
         numeroAtomico:elcA.PotencialCat,
@@ -109,7 +110,8 @@ const Pilhas = () => {
     }else{
       setElB("Cátado") 
       setElA("Ânado") 
-      setVolts(parseFloat(b-a).toFixed(2));
+      volts = parseFloat(b-a).toFixed(2)
+      setVolts(volts);
       var element1 = {
         numeroAtomico:elcA.PotencialAn,
         //nome: "nome",
@@ -124,6 +126,10 @@ const Pilhas = () => {
       setEletrodo2(element2)
 
       
+    }
+
+    if(volts < 0 ){
+      setVolts("Erro: não é pilha")
     }
     
   }

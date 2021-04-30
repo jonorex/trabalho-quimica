@@ -37,24 +37,24 @@ const Pilhas = () => {
   }
 
   const classes = useStyles();
-  const [el1, setEl1] = React.useState('');
-  const [el2, setEl2] = React.useState('');
-  const [volts, setVolts] = React.useState('');
-  const [elA, setElA] = React.useState('')
-  const [elB, setElB] = React.useState('')
-  const [eletrodo1, setEletrodo1] = React.useState('')
-  const [eletrodo2, setEletrodo2] = React.useState('')
-  const [data1, setData1] = React.useState('')
-  const [data2, setData2] = React.useState('')
+  const [el1, setEl1] = React.useState('');//eletrodo 1
+  const [el2, setEl2] = React.useState('');//eletrodo 2
+  const [volts, setVolts] = React.useState('');//voltagem da pilha
+  const [elA, setElA] = React.useState('')//cátado ou anodo
+  const [elB, setElB] = React.useState('')//cátado ou anodo
+  const [eletrodo1, setEletrodo1] = React.useState('')//eletrodo resultante 1
+  const [eletrodo2, setEletrodo2] = React.useState('')//eletrodo resultante 2
+  const [data1, setData1] = React.useState('')//variavel que tem a todos os datos do eletrodo 1
+  const [data2, setData2] = React.useState('')//variavel que tem a todos os datos do eletrodo 2
 
   
 
-  const handleChange = (event) => {
+  const handleChange = (event) => {//metodo de seleção do eletrodo 1
     setData1(event.target.value[0])
-    if(event.target.value[1] === "cat"){
+    if(event.target.value[1] === "cat"){// se o eletemento for catodo os valores catodos seram setados
       element.simbolo = event.target.value[0].Cat;
       element.numeroAtomico = event.target.value[0].PotencialCat
-    }else{
+    }else{//se for anodo os valores de anodos seram setados
       element.simbolo = event.target.value[0].Anado;
       element.numeroAtomico = event.target.value[0].PotencialAn
     }
@@ -62,7 +62,7 @@ const Pilhas = () => {
     setEl1(element);
 
     
-    if(el2 !== ''){
+    if(el2 !== ''){ // se o eledrodo 2 não estiver vazio o calculo de ddp é realizado
       calcVoltagem(element.numeroAtomico, el2.numeroAtomico,event.target.value[0], data2)
     }
   };
@@ -77,7 +77,7 @@ const Pilhas = () => {
       element.numeroAtomico = event.target.value[0].PotencialAn
     }
     setEl2(element);
-    if(el1 !== ''){
+    if(el1 !== ''){// se o eltrodo 1 não estiver vazio o calculo de ddp é realizado
       calcVoltagem(el1.numeroAtomico, element.numeroAtomico,data1,event.target.value[0])
 
     }
@@ -85,10 +85,10 @@ const Pilhas = () => {
 
 
 
-  function calcVoltagem(a,b,elcA,elcB){
+  function calcVoltagem(a,b,elcA,elcB){ //calculo da voltagem, a= valor do potencial
     console.log("a: ",a, " b: ",b)
     var volts
-    if(a > b){
+    if(a > b){ // se o a for maior que o b calculo (a-b)
       setElB("Ânado") 
       setElA("Cátado") 
       volts = parseFloat(a-b).toFixed(2)
@@ -107,7 +107,7 @@ const Pilhas = () => {
       }
       setEletrodo2(element2)
 
-    }else{
+    }else{// se o a for maior que o b calculo (b-a)
       setElB("Cátado") 
       setElA("Ânado") 
       volts = parseFloat(b-a).toFixed(2)
@@ -149,25 +149,16 @@ const Pilhas = () => {
         >
           {
             dataPotenciais.map(s => (
-              
-            <MenuItem value={[s, "cat"]}>{s.Cat}</MenuItem>
-              
-              
+            <MenuItem value={[s, "cat"]}>{s.Cat}</MenuItem>   //eletrodos catodos
             ))
           }
-
           {
             dataPotenciais.map(s => (
-              
-            <MenuItem value={[s, "an"]}>{s.Anado}</MenuItem>
-              
-              
+            <MenuItem value={[s, "an"]}>{s.Anado}</MenuItem>   //eletrodos anodos
             ))
           }
-          
         </Select>
       </FormControl>
-
       <FormControl className={classes.formControl}>
         <InputLabel id="demo-simple-select-label">Elemento 2</InputLabel>
         <Select
@@ -178,45 +169,28 @@ const Pilhas = () => {
         >
           {
             dataPotenciais.map(s => (
-              
-            <MenuItem value={[s, "cat"]}>{s.Cat}</MenuItem>
-              
-              
+            <MenuItem value={[s, "cat"]}>{s.Cat}</MenuItem> //eletrodos catodos
             ))
           }
-
           {
-            dataPotenciais.map(s => (
-              
-            <MenuItem value={[s, "an"]}>{s.Anado}</MenuItem>
-              
-              
+            dataPotenciais.map(s => (   
+            <MenuItem value={[s, "an"]}>{s.Anado}</MenuItem>//eletrodos anodos
             ))
           }
-          
         </Select>
       </FormControl>
       </div>
-
       <div style={{display:"flex", justifyContent:"center", alignItems:"center", margin:"10px 10px"}}>
-          <ElementBigger color="green" element ={el1} nome={elA}/>
-          <Display valor={volts}/>
-          <ElementBigger color="blue"  element={el2} nome={elB}/>
-
-          
+          <ElementBigger color="green" element ={el1} nome={elA}/> {/*Eletrodo 1*/}
+          <Display valor={volts}/>{/*Resultado da ddp*/}
+          <ElementBigger color="blue"  element={el2} nome={elB}/>{/*Eletrodo 2*/}
       </div>
-
       <div style={{display:"flex", justifyContent:"center", alignItems:"center", margin:"10px 10px"}}>
-          
-
-          <ElementBigger color={colors.lantanideos} element={eletrodo1} nome={elA}/>
+          <ElementBigger color={colors.lantanideos} element={eletrodo1} nome={elA}/>{/*Eletrodo resultante 1*/}
           <h4 style={{marginBottom:"40px"}}>Eletrodos Resultantes</h4>
-          <ElementBigger color={colors.acnideos} element={eletrodo2} nome={elB}/>
+          <ElementBigger color={colors.acnideos} element={eletrodo2} nome={elB}/>{/*Eletrodo resultante 2*/}
       </div>
-        
-
     </div>
     )
 }
-
 export default Pilhas

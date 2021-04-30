@@ -5,10 +5,10 @@ export default[
     /////////////Redução
 {
     
-    PotencialCat:2.87,
-    Cat: <>F<Upper>-</Upper></>,
-    Anado: <>F<Bottom>2</Bottom></>,
-    PotencialAn:-2.87,
+    PotencialCat:2.87, //potencial de redução
+    Cat: <>F<Upper>-</Upper></>,//formula de redução
+    Anado: <>F<Bottom>2</Bottom></>,//formuma de oxidação
+    PotencialAn:-2.87,//potencial de oxidação
 },
 {
 

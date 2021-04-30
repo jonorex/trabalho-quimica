@@ -4,7 +4,6 @@ import Bottom from "../utils/Bottom"
 export default[
     /////////////Redução
 {
-    
     PotencialCat:2.87, //potencial de redução
     Cat: <>F<Upper>-</Upper></>,//formula de redução
     Anado: <>F<Bottom>2</Bottom></>,//formuma de oxidação

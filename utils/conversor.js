@@ -121,10 +121,10 @@ const conversor = (props) => {
     function multiplicar(els, result){
         for(var i = 1; i < els.length; i=i+2){
             result.push(els[i-1]*els[i])
-        
+            console.log("result", els[i-1])
         }
     }
-
+    
     function somar(result, resultado){
         for(var i = 0; i < result.length; i++){
             resultado = result[i] + resultado;
@@ -133,7 +133,7 @@ const conversor = (props) => {
         }
     
         resultado = resultado*qtdGlobal
-       
+        
         cQtdAtm = cQtdAtm*qtdGlobal
         console.log("cQtdMV", cQtdAtm)
         setAtmQtd(cQtdAtm)

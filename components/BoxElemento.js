@@ -57,7 +57,7 @@ const BoxElemento = (props) => {
                             <td>{element.numeroAtomico}</td>
                         </tr>
                         <tr>
-                            <td>{element.massaAtomica}</td>
+                            <td>{element.massaAtomica} u</td>
                         </tr>
                         <tr>
                             <td>{element.electronicConfiguration}</td>

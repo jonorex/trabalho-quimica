@@ -1,6 +1,6 @@
 # TrabQuímica
 
-Projeto web de apoio ao estudo de Química, desenvolvido com Next.js e React. Permite visualizar conteúdos, realizar buscas em dados de reagentes e produtos, e consultar propriedades químicas de substâncias.
+Projeto web de apoio ao estudo de Química, desenvolvido com Next.js e React. Permite visualizar conteúdos, realizar buscas em dados de reagentes e produtos, e consultar propriedades químicas de substâncias link do projeto https://trabalho-quimica.vercel.app/.
 
 ---
 
